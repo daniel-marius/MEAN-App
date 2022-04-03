@@ -1,0 +1,7 @@
+<h2>
+  <p>404 - Page {{ paths[1] }} not found</p>
+</h2>
+<p *ngIf="paths.length">
+  You might want to go to the
+  <a [routerLink]="paths[0]">"{{ paths[0] }}" page</a>
+</p>
