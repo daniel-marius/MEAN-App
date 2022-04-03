@@ -83,7 +83,7 @@ export class PostsService {
     const queryParams = `?pageSize=${postsPerPage}&page=${currentPage}`;
     return this.http.get<{ message: string; posts: any; maxPosts: number }>(
       `${BASE_URL}` + queryParams
-    );
+    ).pipe(tap(() => { this._refresh$.next(true); }));;
   }
 
   addPost(title: string, content: string, image: File): void {
